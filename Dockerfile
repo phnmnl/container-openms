@@ -42,8 +42,6 @@ RUN easy_install pyopenms
 
 # Clean up
 RUN apt-get -y clean && apt-get -y autoremove && rm -rf /var/lib/{cache,log}/ /tmp/* /var/tmp/*
-RUN rm -rf /usr/src/openms/contrib
-RUN rm -rf /usr/src/openms/OpenMS
 
 # Set environment and user
 ENV PATH /usr/src/openms/openms-build/bin/:$PATH
