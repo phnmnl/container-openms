@@ -38,7 +38,7 @@ RUN cmake -DCMAKE_PREFIX_PATH="/usr/src/openms/contrib-build/;/usr/src/openms/co
 # Build PyOpenMS
 WORKDIR /usr/src/openms/openms-build
 RUN cmake -DCMAKE_PREFIX_PATH="/usr/src/openms/contrib-build/;/usr/src/openms/contrib/;/usr/;/usr/local" -DBOOST_USE_STATIC=OFF -DHAS_XSERVER=Off -DPYOPENMS=ON ../OpenMS && make pyopenms
-#RUN pip install pyopenms
+RUN pip install pyopenms
 
 # Clean up
 RUN apt-get -y clean && apt-get -y autoremove && rm -rf /var/lib/{cache,log}/ /tmp/* /var/tmp/*
@@ -52,5 +52,5 @@ WORKDIR /home/openms
 USER openms
 
 # Docker entrypoint
-CMD [ "" ]
+#ENTRYPOINT [ "/bin/sh" ]
 

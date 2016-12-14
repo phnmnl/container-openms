@@ -1,0 +1,2 @@
+/usr/src/openms/openms-build/bin//OpenMSInfo
+
