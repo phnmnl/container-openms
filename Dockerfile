@@ -45,11 +45,11 @@ RUN apt-get -y clean && apt-get -y autoremove && rm -rf /var/lib/{cache,log}/ /t
 
 # Set environment and user
 ENV PATH /usr/src/openms/openms-build/bin/:$PATH
-RUN groupadd -g 9999 -f openms
-RUN useradd -d /home/openms -m -g openms -u 9999 -s /bin/bash openms
-RUN echo 'openms:openms' | chpasswd
-WORKDIR /home/openms
-USER openms
+#RUN groupadd -g 9999 -f openms
+#RUN useradd -d /home/openms -m -g openms -u 9999 -s /bin/bash openms
+#RUN echo 'openms:openms' | chpasswd
+#WORKDIR /home/openms
+#USER openms
 
 # Docker entrypoint
 #ENTRYPOINT [ "/bin/sh" ]
