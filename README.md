@@ -5,7 +5,7 @@
 ![Logo](openms.png)
 
 # openMS
-Version: 2.1.0
+Version: 1.11.1
 
 ## Short Description
 
