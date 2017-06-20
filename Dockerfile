@@ -51,6 +51,9 @@ ENV PATH /usr/src/openms/openms-build/bin/:$PATH
 #WORKDIR /home/openms
 #USER openms
 
+ADD runTest1.sh /usr/local/bin/runTest1.sh
+RUN chmod +x /usr/local/bin/runTest1.sh
+
 # Docker entrypoint
 #ENTRYPOINT [ "/bin/sh" ]
 
