@@ -36,9 +36,10 @@ WORKDIR /usr/src/openms/openms-build
 RUN cmake -DCMAKE_PREFIX_PATH="/usr/src/openms/contrib-build/;/usr/src/openms/contrib/;/usr/;/usr/local" -DBOOST_USE_STATIC=OFF -DHAS_XSERVER=Off ../OpenMS && make
 
 # Build PyOpenMS
-WORKDIR /usr/src/openms/openms-build
-RUN cmake -DCMAKE_PREFIX_PATH="/usr/src/openms/contrib-build/;/usr/src/openms/contrib/;/usr/;/usr/local" -DBOOST_USE_STATIC=OFF -DHAS_XSERVER=Off -DPYOPENMS=ON ../OpenMS && make pyopenms
-RUN easy_install pyopenms
+#WORKDIR /usr/src/openms/openms-build
+#RUN cmake -DCMAKE_PREFIX_PATH="/usr/src/openms/contrib-build/;/usr/src/openms/contrib/;/usr/;/usr/local" -DBOOST_USE_STATIC=OFF -DHAS_XSERVER=Off -DPYOPENMS=ON ../OpenMS && make pyopenms
+#RUN easy_install pyopenms
+RUN pip install -Iv pyopenms==2.1.0
 
 # Clean up
 RUN apt-get -y clean && apt-get -y autoremove && rm -rf /var/lib/{cache,log}/ /tmp/* /var/tmp/*
@@ -51,8 +52,8 @@ ENV PATH /usr/src/openms/openms-build/bin/:$PATH
 #WORKDIR /home/openms
 #USER openms
 
+# Add testing to container
 ADD runTest1.sh /usr/local/bin/runTest1.sh
-RUN chmod +x /usr/local/bin/runTest1.sh
 
 # Docker entrypoint
 #ENTRYPOINT [ "/bin/sh" ]
