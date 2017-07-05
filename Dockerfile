@@ -4,7 +4,7 @@ MAINTAINER PhenoMeNal-H2020 Project ( phenomenal-h2020-users@googlegroups.com )
 
 LABEL Description="OpenMS port."
 LABEL software.version="2.1.0"
-LABEL version="0.1"
+LABEL version="0.2"
 
 # Install dependencies
 RUN apt-get -y update
